@@ -1,2 +1,2 @@
-Alteracao texto readme.
+Alteracao texto readme. adicionado texto
 
