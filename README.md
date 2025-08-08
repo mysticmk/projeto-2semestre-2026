@@ -1,2 +1,2 @@
-TESTE INICIAL
+Alteracao texto readme.
 
