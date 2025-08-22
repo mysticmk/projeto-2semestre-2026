@@ -7,6 +7,7 @@ import com.programacao.web.fatec.api_fatec.entities.Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,7 +52,23 @@ public class ClienteController {
 
     @PostMapping("")
     public Cliente createCliente(@RequestBody Cliente cliente) {
+
+        listaDeCliente.add(cliente);
+
         return cliente;
+    }
+
+    @DeleteMapping("/{id}")
+    public String deletarCliente(@PathVariable Long id) {
+        
+        for (Cliente cliente: listaDeCliente) {
+                if (cliente.getId() == id) {
+                    listaDeCliente.remove(cliente);
+                    return "OK";
+                }
+        }
+
+        return "NÃO ENCONTRADO ID:"+id;
     }
     
 }
