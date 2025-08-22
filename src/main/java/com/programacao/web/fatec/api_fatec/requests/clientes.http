@@ -12,3 +12,7 @@ Content-Type: application/json
   "id": 1,
   "nome": "João da Silva"
 }
+
+### Listar Cliente
+GET  http://localhost:8081/api/clientes/listarClientes
+

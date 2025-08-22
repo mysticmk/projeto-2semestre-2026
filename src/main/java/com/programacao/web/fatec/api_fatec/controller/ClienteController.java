@@ -33,6 +33,12 @@ public class ClienteController {
         listaDeCliente.add(cliente2);
     }
 
+    @GetMapping("/listarClientes")
+    public List<Cliente> listarClientes() {
+        return listaDeCliente;
+    }
+    
+
     @GetMapping("/testeCliente1") //-> /api/clientes/testeCliente1
     public String testeCliente() {
         return "Teste Client";
