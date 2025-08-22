@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 
 
@@ -70,5 +72,18 @@ public class ClienteController {
 
         return "NÃO ENCONTRADO ID:"+id;
     }
+
+    @PutMapping("/{id}")
+    public String alterarCliente(@PathVariable Long id, @RequestBody Cliente entity) {
+        
+         for (Cliente cliente: listaDeCliente) {
+                if (cliente.getId() == id) {
+                    cliente.setId(id);
+                    cliente.setNome(entity.getNome());
+                    return "ENCONTROU";
+                }
+        }
+        
+        return "NÃO ENCONTRADO ID:"+id;    }
     
 }
