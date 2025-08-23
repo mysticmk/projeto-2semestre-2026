@@ -55,7 +55,7 @@ public class ClienteController {
 
     @GetMapping("/listarClientes")
     public List<Cliente> listarClientes() {
-        return listaDeCliente;
+        return clienteRepository.findAll();
     }
     
 
