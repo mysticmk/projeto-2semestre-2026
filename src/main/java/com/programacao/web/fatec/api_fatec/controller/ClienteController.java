@@ -16,10 +16,9 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    // Métodos para popular o banco de dados com dados iniciais, se necessário
     @PostConstruct
     public void dadosIniciais() {
-        // Verifica se o banco já tem dados para não duplicar
+        
         if (clienteRepository.count() == 0) {
             clienteRepository.save(new Cliente(null, "Danilo", "rua xxx"));
             clienteRepository.save(new Cliente(null, "Joao", "rua yyyy"));
@@ -27,13 +26,12 @@ public class ClienteController {
         }
     }
 
-    // LISTAR TODOS (READ)
+    
     @GetMapping
     public List<Cliente> listarClientes() {
         return clienteRepository.findAll();
     }
 
-    // BUSCAR POR ID (READ)
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> buscarPorId(@PathVariable Long id) {
         Optional<Cliente> clienteOpt = clienteRepository.findById(id);
@@ -44,13 +42,11 @@ public class ClienteController {
         }
     }
 
-    // CRIAR NOVO CLIENTE (CREATE)
     @PostMapping
     public Cliente criarCliente(@RequestBody Cliente cliente) {
         return clienteRepository.save(cliente);
     }
 
-    // ATUALIZAR CLIENTE (UPDATE)
     @PutMapping("/{id}")
     public ResponseEntity<Cliente> atualizarCliente(@PathVariable Long id, @RequestBody Cliente clienteAtualizado) {
         return clienteRepository.findById(id)
@@ -63,7 +59,6 @@ public class ClienteController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    // DELETAR CLIENTE (DELETE)
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletarCliente(@PathVariable Long id) {
         return clienteRepository.findById(id)
