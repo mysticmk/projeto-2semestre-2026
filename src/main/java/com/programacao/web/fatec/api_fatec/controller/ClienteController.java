@@ -20,9 +20,9 @@ public class ClienteController {
     public void dadosIniciais() {
         
         if (clienteRepository.count() == 0) {
-            clienteRepository.save(new Cliente(null, "Danilo", "rua xxx"));
-            clienteRepository.save(new Cliente(null, "Joao", "rua yyyy"));
-            clienteRepository.save(new Cliente(null, "Maria", "rua zzz"));
+            clienteRepository.save(new Cliente(null, "Michelle", "rua Xyz"));
+            clienteRepository.save(new Cliente(null, "Marcelo", "rua teste"));
+            clienteRepository.save(new Cliente(null, "Milene", "rua zero"));
         }
     }
 
